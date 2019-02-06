@@ -1,9 +1,18 @@
-<?php
+<?php namespace App;
 
-class Fraud_Detect {
+class FraudDetect {
 
-    public function method(){
-        return null;
+    var $APPLICATION_STORE=[];
+
+    public function parseString($string){
+        $splitString = explode(',',$string);
+        return $splitString;
+    }
+
+    public function applicationParseAndStore($applicationString){ 
+        $splitString = explode(',',$applicationString);
+        $APPLICATION_STORE[]=  $splitString ;
+        return $APPLICATION_STORE;
     }
 
 }
