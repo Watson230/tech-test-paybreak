@@ -11,7 +11,7 @@ class FraudDetect {
 
     public function applicationParseAndStore($applicationString){ 
         $splitString = explode(',',$applicationString);
-        $APPLICATION_STORE[]=  $splitString ;
+        $APPLICATION_STORE[$splitString [0]]=  $splitString ;
         return $APPLICATION_STORE;
     }
 
