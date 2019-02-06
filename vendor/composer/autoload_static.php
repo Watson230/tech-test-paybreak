@@ -24,6 +24,10 @@ class ComposerStaticInita8520c90420ca27a7a6d4268e3fd0df8
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -45,6 +49,10 @@ class ComposerStaticInita8520c90420ca27a7a6d4268e3fd0df8
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
