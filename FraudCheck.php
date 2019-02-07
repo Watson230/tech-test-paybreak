@@ -1,10 +1,13 @@
 <?php namespace App;
 
+
+
 class FraudDetect {
 
     public $APPLICATION_STORE ;
     public $APPLICATION_AMOUNT_THRESHOLD;
     public $APPLICATION_LIST ;
+    public $FRAUD_APAPPLICATIONS=[];
 
     public function __construct($applicationStore, $Threshold_Amount,$AplicationList) {
         $this->APPLICATION_STORE = $applicationStore;
@@ -12,32 +15,71 @@ class FraudDetect {
         $this->APPLICATION_LIST = $AplicationList;    
     }
 
-    public function parseString($string){
+    private function parseString($string){
         $splitString = explode(',',$string);
         return $splitString;
     }
 
-    public function applicationParseAndStore($applicationString){ 
-        $splitString = $this->parseString($applicationString);
-        $this->APPLICATION_STORE[$splitString [0]]=  $splitString ;
+    private function applicationParseAndStore($applicationString){ 
+        // parseString method called to parse the comma seperate loan application string into an array
+        $splitAppString = $this->parseString($applicationString);
+
+        //store parsed application string in APPLICATION_STORE array with key = hashed postcode
+        $this->APPLICATION_STORE[$splitAppString [0]]=  $splitAppString ;
+
         return $this->APPLICATION_STORE;
     }
 
 
-    public function accumalateApplicationTransactions($applicationString){
+    private function accumalateApplicationTransactions($applicationString){
         $stringArray = $this->parseString($applicationString);
         $value =  $stringArray[2];
         $time_Stamp = $stringArray[1];
-        $post_code_hash= $stringArray[0];   
+        $post_code_hash= $stringArray[0];  
+       
+        //check to see if hashed post code is already store in APPLICATION_STORE array
+        if(array_key_exists($post_code_hash,$this->APPLICATION_STORE)){
+        // create time stamps for time of new application and the applicaiton stored in APPLICATION_STORE array
+            $new_application_time_stamp = strtotime($time_Stamp);
+            $old_application_time_stamp =strtotime($this->APPLICATION_STORE[$post_code_hash][1]);
+           // check to see if the value of new transtion + the stored value  will be more that the APPLICATION_AMOUNT_THRESHOLD
+            if($this->APPLICATION_STORE[$post_code_hash][2] + $value > $this->APPLICATION_AMOUNT_THRESHOLD){
+                //  check to see if new application time is before the stored application time in APPLICATION_STORE array + 24 hours
+                 if ( $new_application_time_stamp < $old_application_time_stamp + 24*60*60  ) {
+                        $this->APPLICATION_STORE[$stringArray[0]][2] + $value; 
 
-        if( array_key_exists($post_code_hash,$this->APPLICATION_STORE)){
-            $this->APPLICATION_STORE[$post_code_hash][2] = $this->APPLICATION_STORE[$stringArray[0]][2] + $value; 
+                        // hashed postcode from fraudulent transaction is pushed to FRAUD_APAPPLICATIONS array
+                        $this->FRAUD_APAPPLICATIONS[] = $post_code_hash;
+                       return $this->FRAUD_APAPPLICATIONS;
+                      } 
+                      // if new application time is after the stored application time in APPLICATION_STORE array + 24 hours, 
+                      // the values stored in APPLICATION_STORE array for hashed postcode are over written
+                    else {
+                        $this->applicationParseAndStore($applicationString);
+                      }
+            }
+            //if the value of new transtion + the stored value  will be more that the APPLICATION_AMOUNT_THRESHOLD
+            //the new application value is added to the one stored in the APPLICATION_STORE array for that hashed postcode
+             else  {
+                 $this->APPLICATION_STORE[$post_code_hash][2] = $this->APPLICATION_STORE[$post_code_hash][2] + $value; 
+             }
             return $this->APPLICATION_STORE;
         }
 
-        else{
-            // var_dump($APPLICATION_STORE,'dewwd');
+        // if application for a hashed post code is not already stored in APPLICATION_STORE array, 
+        // applicationParseAndStore method is called 
+        else {
             $this->applicationParseAndStore($applicationString);
         }
+        
+    }
+
+    public function fraudCheck (){
+
+        foreach ($this->APPLICATION_LIST  as $appString) {
+            $this->accumalateApplicationTransactions($appString);
+        }
+ 
+        return $this->FRAUD_APAPPLICATIONS;
     }
 }
