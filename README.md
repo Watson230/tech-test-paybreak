@@ -10,7 +10,7 @@ To solve this task I created a FraudDetect class that requires 2 external varibl
 - Integer for the Application threshold total E.G 50
 - Application list array containing comma seperate strings containing information on loan applications e.g "7a81b904f63762f00d53c4d79825420efd00f5f9, 2019-01-29T13:12:11, 10.00 "
 
-The class has a main public function named "fraudCheck", this should be envoked by all instances in order to parse the list of loan applications for fraudulant applications.
+The class has a main public function named "fraudCheck", this should be envoked by all instances in order to parse the input list of loan applications against the Application threshold for fraudulant applications over a 24 hour window.
 
 ## Dependencies
 
