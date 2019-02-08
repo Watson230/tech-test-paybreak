@@ -55,7 +55,7 @@ class FraudDetect {
                       // if new application time is after the stored application time in APPLICATION_STORE array + 24 hours, 
                       // the values stored in APPLICATION_STORE array for hashed postcode are over written
                     else {
-                        $this->applicationParseAndStore($applicationString);
+                        return $this->applicationParseAndStore($applicationString);
                       }
             }
             //if the value of new transtion + the stored value  will be more that the APPLICATION_AMOUNT_THRESHOLD
