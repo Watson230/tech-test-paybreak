@@ -45,10 +45,10 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
     <div class="row">
 
-    <div class="col-sm-6 border"> 
-        <h2>Test Case 1</h2>
+    <div class="col-sm-12 border"> 
+        <h2>Example 1</h2>
         <p> No fraudulent applications</p>
-        <h5>Application Threshold = 40</h5>
+        <p>Application Threshold = 40</p>
         <h5>Test Data 1</h5>
             <?php foreach($testData1 as $applicationString):?>
 
@@ -65,13 +65,15 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
             ?>
     </div>
 
+    </div>
 
-    <div class="col-sm-6 border">   
-        <h2>Test Case 2 </h2>
+    <div class="row"> 
+    <div class="col-sm-12 border">   
+        <h2>Example 2 </h2>
         
        <p> No fraudulent applications - repeated postcode transaction exceeding threshold +24 hours apart </p>
 
-        <h5>Application Threshold = 40</h5>
+        <p>Application Threshold = 40</p>
 
         <h5>Test Data 2</h5>
             <?php foreach($testData2 as $applicationString):?>
@@ -91,12 +93,12 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
     </div>
     <div class="row">
-    <div class="col-sm-6 border">
+    <div class="col-sm-12 border">
 
-        <h2>Test Case 3</h2>
+        <h2>Example 3</h2>
         <p> Fraudulent applications - single postcode </p>
 
-        <h5>Application Threshold = 30</h5>
+        <p>Application Threshold = 30</p>
 
         <h5>Test Data 3</h5>
             <?php foreach($testData3 as $applicationString):?>
@@ -116,11 +118,14 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
             ?>
 
     </div>
+    </div>
 
-    <div class="col-sm-6 border">
-     <h2>Test Case 4</h2>
+    <div class="row">
+
+    <div class="col-sm-12 border">
+     <h2>Example 4</h2>
      <p> Fraudulent applications - multiple postcode </p>
-        <h5>Application Threshold = 30</h5>
+        <p>Application Threshold = 30</p>
 
         <h5>Test Data 4</h5>
             <?php foreach($testData4 as $applicationString):?>
