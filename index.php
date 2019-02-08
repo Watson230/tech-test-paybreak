@@ -32,25 +32,31 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paycheck- fraud detect</title>
+    <title>Paycheck- Fraud detect</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 
 
 
+<div class="container">
 
-<h1>Loan Application Fraud Check</h1>
-    <div> 
-        <h2>Test Case 1 - no fraudulent applications</h2>
-        <h4>Application Threshold = 40</h4>
-        <h4>Test Data 1</h4>
+    <h1>Loan Application Fraud Check</h1>
+
+    <div class="row">
+
+    <div class="col-sm-6 border"> 
+        <h2>Test Case 1</h2>
+        <p> No fraudulent applications</p>
+        <h5>Application Threshold = 40</h5>
+        <h5>Test Data 1</h5>
             <?php foreach($testData1 as $applicationString):?>
 
             <p><?php echo $applicationString?> </p>
 
             <?php endforeach; ?>
 
-        <h3>Fraudulent:</h3>
+        <h4>Fraudulent:</h4>
             <?php
             $fraudDetect = new FraudDetect([],40,$testData1);
             $answer = $fraudDetect->fraudCheck();
@@ -60,12 +66,14 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
     </div>
 
 
-    <div>   
-        <h2>Test Case 2 - no fraudulent applications - repeated postcode transaction +24 hours apart </h2>
+    <div class="col-sm-6 border">   
+        <h2>Test Case 2 </h2>
+        
+       <p> No fraudulent applications - repeated postcode transaction exceeding threshold +24 hours apart </p>
 
-        <h4>Application Threshold = 40</h4>
+        <h5>Application Threshold = 40</h5>
 
-        <h4>Test Data 2</h4>
+        <h5>Test Data 2</h5>
             <?php foreach($testData2 as $applicationString):?>
 
             <p><?php echo $applicationString?> </p>
@@ -81,20 +89,23 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
             ?>
     </div>
 
-    <div>
+    </div>
+    <div class="row">
+    <div class="col-sm-6 border">
 
-        <h2>Test Case 3 - fraudulent applications - single postcode </h2>
+        <h2>Test Case 3</h2>
+        <p> Fraudulent applications - single postcode </p>
 
-        <h4>Application Threshold = 30</h4>
+        <h5>Application Threshold = 30</h5>
 
-        <h4>Test Data 3</h4>
+        <h5>Test Data 3</h5>
             <?php foreach($testData3 as $applicationString):?>
 
             <p><?php echo $applicationString?> </p>
 
             <?php endforeach; ?>
 
-        <h3>Fraudulent:</h3>
+        <h4>Fraudulent:</h4>
             <?php
             $fraudDetect = new FraudDetect([],30,$testData3);
             $answer = $fraudDetect->fraudCheck();
@@ -106,19 +117,19 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
     </div>
 
-    <div>
-     <h2>Test Case 4 - fraudulent applications - multiple postcode </h2>
+    <div class="col-sm-6 border">
+     <h2>Test Case 4</h2>
+     <p> Fraudulent applications - multiple postcode </p>
+        <h5>Application Threshold = 30</h5>
 
-        <h4>Application Threshold = 30</h4>
-
-        <h4>Test Data 4</h4>
+        <h5>Test Data 4</h5>
             <?php foreach($testData4 as $applicationString):?>
 
             <p><?php echo $applicationString?> </p>
 
             <?php endforeach; ?>
 
-        <h3>Fraudulent:</h3>
+        <h4>Fraudulent:</h4>
             <?php
             $fraudDetect = new FraudDetect([],30,$testData4);
             $answer = $fraudDetect->fraudCheck();
@@ -128,6 +139,10 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
             }
             ?>
     </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
