@@ -9,7 +9,7 @@ class FraudDetect {
     public $APPLICATION_LIST ;
     public $FRAUD_APAPPLICATIONS=[];
 
-    public function __construct($Threshold_Amount,$AplicationList) {
+     function __construct($Threshold_Amount,$AplicationList) {
         $this->APPLICATION_AMOUNT_THRESHOLD = $Threshold_Amount;
         $this->APPLICATION_LIST = $AplicationList;    
     }
@@ -23,7 +23,7 @@ class FraudDetect {
     // parseString method called to parse the comma seperate loan application string into an array
         $splitAppString = $this->parseString($applicationString);
 
-    //store parsed application string in APPLICATION_STORE array with key = hashed postcode
+    //store the parsed application string in APPLICATION_STORE array with key = hashed postcode
         $this->APPLICATION_STORE[$splitAppString [0]]=  $splitAppString ;
 
         return $this->APPLICATION_STORE;
@@ -40,7 +40,7 @@ class FraudDetect {
         // create time stamps for the time of new application and the applicaiton stored in APPLICATION_STORE array for that hashed postcode.
             $new_application_time_stamp = strtotime($time_Stamp);
             $old_application_time_stamp =strtotime($this->APPLICATION_STORE[$post_code_hash][1]);
-        // check to see if the value of new transaction + the stored value  will be more that the APPLICATION_AMOUNT_THRESHOLD
+            // check to see if the value of new transaction + the stored value  will be more that the APPLICATION_AMOUNT_THRESHOLD
             if($this->APPLICATION_STORE[$post_code_hash][2] + $value > $this->APPLICATION_AMOUNT_THRESHOLD){
 
                 // check to see if new application time is before the stored application time in APPLICATION_STORE array + 24 hours
