@@ -43,6 +43,16 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
     <h1>Loan Application Fraud Check</h1>
 
+    <p>Task: write a method, which when given a sequence of loan applications in chronological order and an
+        application amount threshold, returns all the hashed Postal codes that have been identified as
+        fraudulent.</p>
+
+        <p>A loan application will be identified as fraudulent if the sum of amounts for a unique hashed Postal
+            code over a 24 hour sliding window period exceeds the application amount threshold.</p>
+
+            <p>Applications are to be received as a comma separated string of elements.
+                E.g. 7a81b904f63762f00d53c4d79825420efd00f5f9, 2019-01-29T13:12:11, 10.00</p>
+
     <div class="row">
 
     <div class="col-sm-12 border"> 
