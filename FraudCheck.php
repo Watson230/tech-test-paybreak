@@ -60,16 +60,16 @@ class FraudDetect {
                       }
             }
 
-        //if the value of new application value + the stored value will not be more that the APPLICATION_AMOUNT_THRESHOLD
-        //the new application value is added to the one stored in the APPLICATION_STORE array for that hashed postcode
+            //if the value of new application value + the stored value will not be more that the APPLICATION_AMOUNT_THRESHOLD
+            //the new application value is added to the one stored in the APPLICATION_STORE array for that hashed postcode
              else  {
                  $this->APPLICATION_STORE[$post_code_hash][2] = $this->APPLICATION_STORE[$post_code_hash][2] + $value; 
              }
             return $this->APPLICATION_STORE;
         }
 
-        // if an application for a hashed post code is not already stored in APPLICATION_STORE array, 
-        // applicationParseAndStore method is called 
+    // if an application for a hashed post code is not already stored in APPLICATION_STORE array, 
+    // applicationParseAndStore method is called 
         else {
             $this->applicationParseAndStore($applicationString);
         }
