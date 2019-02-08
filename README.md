@@ -1,6 +1,6 @@
 # tech-test-paybreak
 
-### PayBreak Coding Task - load fraud detection
+### PayBreak Coding Task - loan fraud detection
 
 ### Approach
 
