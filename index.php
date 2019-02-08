@@ -40,89 +40,94 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
 
 <h1>Loan Application Fraud Check</h1>
+    <div> 
+        <h2>Test Case 1 - no fraudulent applications</h2>
+        <h4>Application Threshold = 40</h4>
+        <h4>Test Data 1</h4>
+            <?php foreach($testData1 as $applicationString):?>
 
-<h2>Test Case 1 - no fraudulent applications</h2>
+            <p><?php echo $applicationString?> </p>
 
-<h4>Application Threshold = 40</h4>
+            <?php endforeach; ?>
 
-<h4>Test Data 1</h4>
-<?php foreach($testData1 as $applicationString):?>
-
-<p><?php echo $applicationString?> </p>
-
-<?php endforeach; ?>
-
-<h3>Fraudulent:</h3>
-<?php
-$fraudDetect = new FraudDetect([],40,$testData1);
-$answer = $fraudDetect->fraudCheck();
-if(!$answer) echo 'None Found';
-else echo $answer
-?>
-
-
-<h2>Test Case 2 - no fraudulent applications - repeated postcode transaction +24 hours apart </h2>
-
-<h4>Application Threshold = 40</h4>
-
-<h4>Test Data 2</h4>
-<?php foreach($testData2 as $applicationString):?>
-
-<p><?php echo $applicationString?> </p>
-
-<?php endforeach; ?>
-
-<h3>Fraudulent:</h3>
-<?php
-$fraudDetect = new FraudDetect([],40,$testData2);
-$answer = $fraudDetect->fraudCheck();
-if(!$answer) echo 'None Found';
-else echo $answer
-?>
+        <h3>Fraudulent:</h3>
+            <?php
+            $fraudDetect = new FraudDetect([],40,$testData1);
+            $answer = $fraudDetect->fraudCheck();
+            if(!$answer) echo 'None Found';
+            else echo $answer
+            ?>
+    </div>
 
 
-<h2>Test Case 3 - fraudulent applications - single postcode </h2>
+    <div>   
+        <h2>Test Case 2 - no fraudulent applications - repeated postcode transaction +24 hours apart </h2>
 
-<h4>Application Threshold = 30</h4>
+        <h4>Application Threshold = 40</h4>
 
-<h4>Test Data 3</h4>
-<?php foreach($testData3 as $applicationString):?>
+        <h4>Test Data 2</h4>
+            <?php foreach($testData2 as $applicationString):?>
 
-<p><?php echo $applicationString?> </p>
+            <p><?php echo $applicationString?> </p>
 
-<?php endforeach; ?>
+            <?php endforeach; ?>
 
-<h3>Fraudulent:</h3>
-<?php
-$fraudDetect = new FraudDetect([],30,$testData3);
-$answer = $fraudDetect->fraudCheck();
-if(!$answer) echo 'None Found';
-else foreach($answer as $postcode) {
-    echo $postcode, '<br>';
-}
-?>
+        <h3>Fraudulent:</h3>
+            <?php
+            $fraudDetect = new FraudDetect([],40,$testData2);
+            $answer = $fraudDetect->fraudCheck();
+            if(!$answer) echo 'None Found';
+            else echo $answer
+            ?>
+    </div>
 
+    <div>
 
-<h2>Test Case 4 - fraudulent applications - multiple postcode </h2>
+        <h2>Test Case 3 - fraudulent applications - single postcode </h2>
 
-<h4>Application Threshold = 30</h4>
+        <h4>Application Threshold = 30</h4>
 
-<h4>Test Data 4</h4>
-<?php foreach($testData4 as $applicationString):?>
+        <h4>Test Data 3</h4>
+            <?php foreach($testData3 as $applicationString):?>
 
-<p><?php echo $applicationString?> </p>
+            <p><?php echo $applicationString?> </p>
 
-<?php endforeach; ?>
+            <?php endforeach; ?>
 
-<h3>Fraudulent:</h3>
-<?php
-$fraudDetect = new FraudDetect([],30,$testData4);
-$answer = $fraudDetect->fraudCheck();
-if(!$answer) echo 'None Found';
-else foreach($answer as $postcode) {
-    echo $postcode, '<br>';
-}
-?>
+        <h3>Fraudulent:</h3>
+            <?php
+            $fraudDetect = new FraudDetect([],30,$testData3);
+            $answer = $fraudDetect->fraudCheck();
+            if(!$answer) echo 'None Found';
+            else foreach($answer as $postcode) {
+                echo $postcode, '<br>';
+            }
+            ?>
+
+    </div>
+
+    <div>
+     <h2>Test Case 4 - fraudulent applications - multiple postcode </h2>
+
+        <h4>Application Threshold = 30</h4>
+
+        <h4>Test Data 4</h4>
+            <?php foreach($testData4 as $applicationString):?>
+
+            <p><?php echo $applicationString?> </p>
+
+            <?php endforeach; ?>
+
+        <h3>Fraudulent:</h3>
+            <?php
+            $fraudDetect = new FraudDetect([],30,$testData4);
+            $answer = $fraudDetect->fraudCheck();
+            if(!$answer) echo 'None Found';
+            else foreach($answer as $postcode) {
+                echo $postcode, '<br>';
+            }
+            ?>
+    </div>
 
 </body>
 </html>
