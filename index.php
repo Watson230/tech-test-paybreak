@@ -11,7 +11,7 @@ $testData1 = array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11
 
 $testData2 = array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,10.00',
 '6a81b904f63762f00d53c4d69825420efd00f5f9,2019-01-29T13:12:11,10.00',
-'7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-31T13:15:11,10.00');
+'7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-31T13:15:11,20.00');
 
 $testData3 = array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,10.00',
 '6a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:15,10.00',
@@ -66,9 +66,13 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent Postcodes:</h4>
+              <h4>Expected Result:</h4>
+
+            <p>A blank array / none found</p>
+
+        <h4>Fraudulent Applications Found:</h4>
             <?php
-            $fraudDetect = new FraudDetect([],40,$testData1);
+            $fraudDetect = new FraudDetect(40,$testData1);
             $answer = $fraudDetect->fraudCheck();
             if(!$answer) echo 'None Found';
             else echo $answer
@@ -83,7 +87,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
         
        <p> No fraudulent applications - repeated postcode transaction exceeding threshold +24 hours apart </p>
 
-        <p>Application Threshold = 40</p>
+        <p>Application Threshold = 20</p>
 
         <h5>Test Data 2</h5>
             <?php foreach($testData2 as $applicationString):?>
@@ -92,9 +96,13 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h3>Fraudulent Postcodes:</h3>
+                <h4>Expected Result:</h4>
+
+                <p>A blank array / none found</p>
+
+        <h3>Fraudulent Applications Found:</h3>
             <?php
-            $fraudDetect = new FraudDetect([],40,$testData2);
+            $fraudDetect = new FraudDetect(40,$testData2);
             $answer = $fraudDetect->fraudCheck();
             if(!$answer) echo 'None Found';
             else echo $answer
@@ -110,6 +118,8 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
         <p>Application Threshold = 30</p>
 
+       
+
         <h5>Test Data 3</h5>
             <?php foreach($testData3 as $applicationString):?>
 
@@ -117,9 +127,13 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent Postcodes:</h4>
+            <h4>Expected Result:</h4>
+
+             <p> 6a81b904f63762f00d53c4d79825420efd00f5f9</p>
+
+        <h4>Fraudulent Applications Found:</h4>
             <?php
-            $fraudDetect = new FraudDetect([],30,$testData3);
+            $fraudDetect = new FraudDetect(30,$testData3);
             $answer = $fraudDetect->fraudCheck();
             if(!$answer) echo 'None Found';
             else foreach($answer as $postcode) {
@@ -137,6 +151,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
      <p> Fraudulent applications - multiple postcode </p>
         <p>Application Threshold = 30</p>
 
+
         <h5>Test Data 4</h5>
             <?php foreach($testData4 as $applicationString):?>
 
@@ -144,9 +159,14 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent Postcodes:</h4>
+             <h4>Expected Result:</h4>
+
+            <p>6a81b904f63762f00d53c4d79825420efd00f5f9</p>
+            <p>7a81b904f63762f00d53c4d79825420efd00f5f9</p>
+
+        <h4>Fraudulent Applications Found:</h4>
             <?php
-            $fraudDetect = new FraudDetect([],30,$testData4);
+            $fraudDetect = new FraudDetect(30,$testData4);
             $answer = $fraudDetect->fraudCheck();
             if(!$answer) echo 'None Found';
             else foreach($answer as $postcode) {

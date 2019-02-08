@@ -4,13 +4,12 @@
 
 class FraudDetect {
 
-    public $APPLICATION_STORE ;
+    public $APPLICATION_STORE =[] ;
     public $APPLICATION_AMOUNT_THRESHOLD;
     public $APPLICATION_LIST ;
     public $FRAUD_APAPPLICATIONS=[];
 
-    public function __construct($applicationStore, $Threshold_Amount,$AplicationList) {
-        $this->APPLICATION_STORE = $applicationStore;
+    public function __construct($Threshold_Amount,$AplicationList) {
         $this->APPLICATION_AMOUNT_THRESHOLD = $Threshold_Amount;
         $this->APPLICATION_LIST = $AplicationList;    
     }

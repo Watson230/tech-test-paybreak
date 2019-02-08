@@ -6,8 +6,7 @@
 
 - TDD was used to develop my solution to this tech test, my tests and evidence of my thought process can be found in the "test/test.php" file.
 
-To solve this task I created a FraudDetect class that requires 3 external varibles, 
-- An empty Application_Store array to store loan applications,
+To solve this task I created a FraudDetect class that requires 2 external varibles, 
 - Integer for the Application threshold total E.G 50
 - Application list array containing comma seperate strings containing information on loan applications e.g "7a81b904f63762f00d53c4d79825420efd00f5f9, 2019-01-29T13:12:11, 10.00 "
 

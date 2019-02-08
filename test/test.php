@@ -103,7 +103,7 @@ class PaybreakTest extends TestCase
                                         '2a81b904f63762f00d53c4d69825420efd00f5f9,2019-02-29T13:12:11,10.00',
                                         '1a81b904f63762f00d53c4d79825420efd00f5f9,2019-02-31T13:15:11,10.00');
         
-            $fraudDetect = new FraudDetect([] ,20,$exampleStringArray );
+            $fraudDetect = new FraudDetect(20,$exampleStringArray );
             $result = $fraudDetect->fraudCheck();
 
             $array= [];
@@ -122,7 +122,7 @@ class PaybreakTest extends TestCase
                                         '6a81b904f63762f00d53c4d69825420efd00f5f9,2019-01-29T13:12:11,10.00',
                                         '7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-31T13:15:11,10.00');
         
-            $fraudDetect = new FraudDetect([] ,30,$exampleStringArray );
+            $fraudDetect = new FraudDetect(30,$exampleStringArray );
             $result = $fraudDetect->fraudCheck();
 
             $array= [];
@@ -139,7 +139,7 @@ class PaybreakTest extends TestCase
                                         '6a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:15,10.00',
                                         '6a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:15:11,40.00');
         
-            $fraudDetect = new FraudDetect([] ,30,$exampleStringArray );
+            $fraudDetect = new FraudDetect(30,$exampleStringArray );
             $result = $fraudDetect->fraudCheck();
 
             $array= ['6a81b904f63762f00d53c4d79825420efd00f5f9'];
@@ -158,7 +158,7 @@ class PaybreakTest extends TestCase
                                         '5a72b504f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:15:11,10.00',
                                         '7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-30T01:12:11,50.00');
         
-            $fraudDetect = new FraudDetect([] ,30,$exampleStringArray );
+            $fraudDetect = new FraudDetect(30,$exampleStringArray );
             $result = $fraudDetect->fraudCheck();
 
             $array= ['6a81b904f63762f00d53c4d79825420efd00f5f9', '7a81b904f63762f00d53c4d79825420efd00f5f9'];
