@@ -66,7 +66,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent:</h4>
+        <h4>Fraudulent Postcodes:</h4>
             <?php
             $fraudDetect = new FraudDetect([],40,$testData1);
             $answer = $fraudDetect->fraudCheck();
@@ -92,7 +92,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h3>Fraudulent:</h3>
+        <h3>Fraudulent Postcodes:</h3>
             <?php
             $fraudDetect = new FraudDetect([],40,$testData2);
             $answer = $fraudDetect->fraudCheck();
@@ -117,7 +117,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent:</h4>
+        <h4>Fraudulent Postcodes:</h4>
             <?php
             $fraudDetect = new FraudDetect([],30,$testData3);
             $answer = $fraudDetect->fraudCheck();
@@ -144,7 +144,7 @@ $testData4= array('7a81b904f63762f00d53c4d79825420efd00f5f9,2019-01-29T13:12:11,
 
             <?php endforeach; ?>
 
-        <h4>Fraudulent:</h4>
+        <h4>Fraudulent Postcodes:</h4>
             <?php
             $fraudDetect = new FraudDetect([],30,$testData4);
             $answer = $fraudDetect->fraudCheck();

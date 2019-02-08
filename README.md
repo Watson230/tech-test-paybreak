@@ -46,7 +46,7 @@ Install composer files -  composer insteall
 
 ## Running locally 
 
-- Run the index.php file locally by running php -S localhost:8000 index.php in your terminal
+- Run the index.php file locally by running 'php -S localhost:8000 index.php' in your terminal
 - here you will see the results of 4 examples which have ran within index.php
 - All tests used a array of comma seperated 'loan application' strings
 
