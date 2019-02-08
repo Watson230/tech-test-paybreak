@@ -25,9 +25,7 @@ The class has a main public function named "fraudCheck", this should be envoked 
     "require-dev": {
         "phpunit/phpunit": "^6"
     },
-    "require": {
-        "twbs/bootstrap": "^4.2"
-    }
+
 }
 
 
