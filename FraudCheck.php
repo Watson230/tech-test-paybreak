@@ -53,7 +53,7 @@ class FraudDetect {
                       } 
 
                  // if new application time is after the stored application time in APPLICATION_STORE array + 24 hours, 
-                 // the values stored in APPLICATION_STORE array for that hashed postcode are over written
+                 // the values stored in APPLICATION_STORE array for that hashed postcode are over written with the new values for that postcode
                     else {
                         return $this->applicationParseAndStore($applicationString);
                       }
@@ -76,7 +76,7 @@ class FraudDetect {
     }
 
     public function fraudCheck (){
-
+        // loop through APPLICATION_LIST and pass each application string into accumalateApplicationTransactions method
         foreach ($this->APPLICATION_LIST  as $appString) {
             $this->accumalateApplicationTransactions($appString);
         }
