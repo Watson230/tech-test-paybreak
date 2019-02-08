@@ -4,7 +4,7 @@
 
 ### Approach
 
-- TDD was used to develop my solution to this tech test, my unit tests and evidence of my thought process can be found in the "test/test.php" file.
+- TDD was used to develop my solution to this tech test, my tests and evidence of my thought process can be found in the "test/test.php" file.
 
 To solve this task I created a FraudDetect class that requires 2 external varibles, 
 - Integer for the Application threshold total E.G 50
